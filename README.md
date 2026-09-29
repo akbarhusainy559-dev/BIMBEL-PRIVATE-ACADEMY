@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bimbel Privat Academy</title>
+
+    <meta name="description"
+        content="Bimbel Privat Academy - Bimbingan belajar profesional, fleksibel, dan terarah.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: #142844;
+            background: #ffffff;
+            line-height: 1.6;
+        }
+
+        :root {
+            --navy: #102743;
+            --navy-dark: #091b31;
+            --gold: #d9ae69;
+            --gold-light: #f2d29b;
+            --cream: #faf7f0;
+            --white: #ffffff;
+            --gray: #667085;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            height: 72px;
+            background: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 43px;
+            height: 43px;
+            border: 2px solid var(--gold-light);
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 23px;
+        }
+
+        .logo-text {
+            line-height: 1.05;
+        }
+
+        .logo-text strong {
+            display: block;
+            font-size: 17px;
+        }
+
+        .logo-text span {
+            color: var(--gold-light);
+            font-size: 16px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .nav-button {
+            background: var(--gold-light);
+            color: var(--navy);
+            padding: 11px 22px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .menu-btn {
+            display: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(7, 25, 46, 0.98) 0%,
+                    rgba(10, 31, 54, 0.91) 40%,
+                    rgba(10, 31, 54, 0.35) 75%,
+                    rgba(10, 31, 54, 0.20) 100%
+                ),
+                url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1800&q=85");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            width: 86%;
+            max-width: 1200px;
+            margin: auto;
+            color: white;
+            padding: 80px 0;
+        }
+
+        .hero-small {
+            color: var(--gold-light);
+            letter-spacing: 3px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 6vw, 78px);
+            line-height: 0.98;
+            max-width: 650px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: var(--gold-light);
+        }
+
+        .hero p {
+            max-width: 520px;
+            color: #edf2f7;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-gold {
+            background: var(--gold-light);
+            color: var(--navy);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(242,210,155,0.25);
+        }
+
+        .btn-outline {
+            color: white;
+            border: 1px solid rgba(255,255,255,0.6);
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--navy);
+        }
+
+        /* ================= FEATURES ================= */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            padding: 28px 7%;
+            gap: 20px;
+            background: var(--cream);
+        }
+
+        .feature {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            border-right: 1px solid #ddd5c8;
+            padding: 8px 20px;
+        }
+
+        .feature:last-child {
+            border-right: none;
+        }
+
+        .feature-icon {
+            min-width: 48px;
+            height: 48px;
+            border: 1px solid #cdb78f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .feature h4 {
+            font-size: 14px;
+        }
+
+        .feature p {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        /* ================= GENERAL ================= */
+
+        .section {
+            padding: 80px 7%;
+        }
+
+        .section-label {
+            color: #a77c3e;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            line-height: 1.2;
+            margin-bottom: 14px;
+        }
+
+        .section-desc {
+            color: var(--gray);
+            max-width: 600px;
+        }
+
+        /* ================= PROGRAM ================= */
+
+        .program-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 35px;
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .program-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            background: white;
+            transition: 0.3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(15,39,67,0.12);
+        }
+
+        .program-image {
+            height: 160px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .program-card:nth-child(1) .program-image {
+            background-image: url("https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80");
+        }
+
+        .program-card:nth-child(2) .program-image {
+            background-image: url("https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=800&q=80");
+        }
+
+        .program-card:nth-child(3) .program-image {
+            background-image: url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80");
+        }
+
+        .program-card:nth-child(4) .program-image {
+            background-image: url("https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80");
+        }
+
+        .program-content {
+            padding: 18px;
+        }
+
+        .program-content h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .program-content p {
+            color: var(--gray);
+            font-size: 13px;
+        }
+
+        .program-link {
+            margin-top: 15px;
+            display: inline-block;
+            color: #a77c3e;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        /* ================= PRICE ================= */
+
+        .price-section {
+            background: var(--navy);
+            color: white;
+            border-radius: 18px;
+            margin: 20px 7%;
+            padding: 55px;
+        }
+
+        .price-section .section-desc {
+            color: #c8d1dc;
+        }
+
+        .price-grid {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .price-card {
+            background: white;
+            color: var(--navy);
+            padding: 25px 18px;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .price-card h3 {
+            font-size: 16px;
+        }
+
+        .price-card .price {
+            font-size: 25px;
+            font-weight: 800;
+            margin: 15px 0;
+        }
+
+        .price-card small {
+            color: var(--gray);
+        }
+
+        .price-button {
+            display: block;
+            margin-top: 20px;
+            background: var(--gold-light);
+            padding: 9px;
+            border-radius: 8px;
+            color: var(--navy);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            height: 430px;
+            border-radius: 15px;
+            background:
+                linear-gradient(rgba(8,31,55,0.15), rgba(8,31,55,0.15)),
+                url("https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=85");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .about-text p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        /* ================= WHY US ================= */
+
+        .why {
+            background: var(--cream);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .why-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #eee;
+        }
+
+        .why-card .icon {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .why-card h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .why-card p {
+            color: var(--gray);
+            font-size: 13px;
+        }
+
+        /* ================= TESTIMONIAL ================= */
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 35px;
+        }
+
+        .testimonial {
+            border: 1px solid #e4e7eb;
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .stars {
+            color: #b8873d;
+            margin-bottom: 10px;
+        }
+
+        .testimonial p {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .person {
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact {
+            background: var(--cream);
+        }
+
+        .contact-box {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            background: var(--navy);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        .contact-info h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            color: #d2d9e1;
+            margin-bottom: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+            align-items: center;
+        }
+
+        .contact-icon {
+            width: 42px;
+            height: 42px;
+            border: 1px solid #aab5c2;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            border: 1px solid #ddd;
+            padding: 14px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-family: inherit;
+        }
+
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: var(--navy-dark);
+            color: white;
+            padding: 40px 7% 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 35px;
+        }
+
+        footer h3 {
+            margin-bottom: 15px;
+        }
+
+        footer p,
+        footer a {
+            color: #c7d0db;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        footer a {
+            display: block;
+            margin: 8px 0;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 18px;
+            text-align: center;
+            color: #9aa8b8;
+            font-size: 12px;
+        }
+
+        /* ================= WHATSAPP ================= */
+
+        .whatsapp {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #25D366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            z-index: 2000;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links,
+            .nav-button {
+                display: none;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .features,
+            .program-grid,
+            .price-grid,
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about,
+            .contact-box {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .feature:nth-child(2) {
+                border-right: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            .hero {
+                min-height: 600px;
+            }
+
+            .hero-content {
+                width: 90%;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .section {
+                padding: 55px 5%;
+            }
+
+            .features,
+            .program-grid,
+            .price-grid,
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature {
+                border-right: none;
+                border-bottom: 1px solid #ddd5c8;
+                padding: 15px 5px;
+            }
+
+            .feature:last-child {
+                border-bottom: none;
+            }
+
+            .program-header {
+                display: block;
+            }
+
+            .price-section {
+                margin: 10px 4%;
+                padding: 30px 20px;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+
+        <a href="#beranda" class="logo">
+
+            <div class="logo-icon">
+                🎓
+            </div>
+
+            <div class="logo-text">
+                <strong>Bimbel Privat</strong>
+                <span>Academy</span>
+            </div>
+
+        </a>
+
+        <div class="nav-links">
+
+            <a href="#beranda">Beranda</a>
+            <a href="#program">Program Belajar</a>
+            <a href="#harga">Paket & Harga</a>
+            <a href="#tentang">Tentang Kami</a>
+            <a href="#kontak">Kontak</a>
+
+        </div>
+
+        <a href="https://wa.me/6282162361209"
+           class="nav-button"
+           target="_blank">
+
+            Daftar Sekarang
+
+        </a>
+
+        <div class="menu-btn">
+            ☰
+        </div>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="beranda">
+
+        <div class="hero-content">
+
+            <div class="hero-small">
+                BELAJAR LEBIH MUDAH, RAIH MASA DEPAN
+            </div>
+
+            <h1>
+                Bimbel Privat
+                <span>Academy</span>
+            </h1>
+
+            <p>
+                Pendampingan belajar yang fokus, fleksibel,
+                dan terarah untuk membantu siswa meraih
+                nilai terbaik dan mencapai impian.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="https://wa.me/6282162361209"
+                   target="_blank"
+                   class="btn btn-gold">
+
+                    Daftar Sekarang →
+
+                </a>
+
+                <a href="#program"
+                   class="btn btn-outline">
+
+                    Lihat Program
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURES ================= -->
+
+    <section class="features">
+
+        <div class="feature">
+
+            <div class="feature-icon">👨‍🏫</div>
+
+            <div>
+                <h4>Tutor Profesional</h4>
+                <p>Berpengalaman & kompeten</p>
+            </div>
+
+        </div>
+
+        <div class="feature">
+
+            <div class="feature-icon">👥</div>
+
+            <div>
+                <h4>Pembelajaran Personal</h4>
+                <p>Sesuai kebutuhan siswa</p>
+            </div>
+
+        </div>
+
+        <div class="feature">
+
+            <div class="feature-icon">📈</div>
+
+            <div>
+                <h4>Metode Efektif</h4>
+                <p>Mudah dipahami</p>
+            </div>
+
+        </div>
+
+        <div class="feature">
+
+            <div class="feature-icon">⏰</div>
+
+            <div>
+                <h4>Fleksibel</h4>
+                <p>Sesuaikan waktu belajar</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PROGRAM ================= -->
+
+    <section class="section" id="program">
+
+        <div class="program-header">
+
+            <div>
+
+                <div class="section-label">
+                    Program Belajar
+                </div>
+
+                <h2 class="section-title">
+                    Program Belajar
+                </h2>
+
+                <p class="section-desc">
+                    Program pembelajaran untuk berbagai jenjang
+                    dengan metode yang disesuaikan dengan
+                    kebutuhan setiap siswa.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="program-grid">
+
+            <div class="program-card">
+
+                <div class="program-image"></div>
+
+                <div class="program-content">
+
+                    <h3>Kelas 10</h3>
+
+                    <p>
+                        Membangun fondasi belajar
+                        untuk masa depan.
+                    </p>
+
+                    <a href="#kontak" class="program-link">
+                        Selengkapnya →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="program-card">
+
+                <div class="program-image"></div>
+
+                <div class="program-content">
+
+                    <h3>Kelas 11</h3>
+
+                    <p>
+                        Pemantapan konsep dan
+                        peningkatan nilai.
+                    </p>
+
+                    <a href="#kontak" class="program-link">
+                        Selengkapnya →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="program-card">
+
+                <div class="program-image"></div>
+
+                <div class="program-content">
+
+                    <h3>Kelas 12</h3>
+
+                    <p>
+                        Fokus persiapan ujian
+                        dan masuk perguruan tinggi.
+                    </p>
+
+                    <a href="#kontak" class="program-link">
+                        Selengkapnya →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="program-card">
+
+                <div class="program-image"></div>
+
+                <div class="program-content">
+
+                    <h3>UTBK</h3>
+
+                    <p>
+                        Strategi dan latihan intensif
+                        menuju kampus impian.
+                    </p>
+
+                    <a href="#kontak" class="program-link">
+                        Selengkapnya →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= HARGA ================= -->
+
+    <section class="price-section" id="harga">
+
+        <div class="section-label">
+            Paket Belajar
+        </div>
+
+        <h2 class="section-title">
+            Paket & Harga
+        </h2>
+
+        <p class="section-desc">
+            Pilihan paket belajar fleksibel dengan
+            harga yang terjangkau.
+        </p>
+
+
+        <div class="price-grid">
+
+            <div class="price-card">
+
+                <h3>Paket Reguler</h3>
+
+                <small>1× per minggu</small>
+
+                <div class="price">
+                    Rp150.000
+                </div>
+
+                <small>/ bulan</small>
+
+                <a href="https://wa.me/6282162361209"
+                   target="_blank"
+                   class="price-button">
+
+                    Daftar
+
+                </a>
+
+            </div>
+
+
+            <div class="price-card">
+
+                <h3>Paket Intensif</h3>
+
+                <small>2× per minggu</small>
+
+                <div class="price">
+                    Rp250.000
+                </div>
+
+                <small>/ bulan</small>
+
+                <a href="https://wa.me/6282162361209"
+                   target="_blank"
+                   class="price-button">
+
+                    Daftar
+
+                </a>
+
+            </div>
+
+
+            <div class="price-card">
+
+                <h3>Paket Premium</h3>
+
+                <small>3× per minggu</small>
+
+                <div class="price">
+                    Rp350.000
+                </div>
+
+                <small>/ bulan</small>
+
+                <a href="https://wa.me/6282162361209"
+                   target="_blank"
+                   class="price-button">
+
+                    Daftar
+
+                </a>
+
+            </div>
+
+
+            <div class="price-card">
+
+                <h3>UTBK Special</h3>
+
+                <small>4× per minggu</small>
+
+                <div class="price">
+                    Rp500.000
+                </div>
+
+                <small>/ bulan</small>
+
+                <a href="https://wa.me/6282162361209"
+                   target="_blank"
+                   class="price-button">
+
+                    Daftar
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= TENTANG ================= -->
+
+    <section class="section" id="tentang">
+
+        <div class="about">
+
+            <div class="about-image"></div>
+
+            <div class="about-text">
+
+                <div class="section-label">
+                    Tentang Kami
+                </div>
+
+                <h2 class="section-title">
+                    Belajar dengan Cara
+                    yang Lebih Personal
+                </h2>
+
+                <p>
+                    Bimbel Privat Academy adalah lembaga
+                    bimbingan belajar yang berkomitmen membantu
+                    siswa mengembangkan potensi terbaiknya.
+                </p>
+
+                <p>
+                    Dengan tutor berpengalaman, metode belajar
+                    yang efektif, dan pendekatan personal, kami
+                    membantu siswa belajar lebih percaya diri
+                    dan terarah.
+                </p>
+
+                <a href="#kontak"
+                   class="btn btn-gold">
+
+                    Hubungi Kami →
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= WHY US ================= -->
+
+    <section class="section why">
+
+        <div class="section-label">
+            Keunggulan
+        </div>
+
+        <h2 class="section-title">
+            Kenapa Memilih Kami?
+        </h2>
+
+        <p class="section-desc">
+            Kami bukan hanya mengajar, tetapi juga
+            mendampingi siswa sampai berhasil.
+        </p>
+
+
+        <div class="why-grid">
+
+            <div class="why-card">
+
+                <div class="icon">👨‍🏫</div>
+
+                <h3>Tutor Berpengalaman</h3>
+
+                <p>
+                    Tutor yang kompeten dan siap
+                    membantu proses belajar siswa.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="icon">📚</div>
+
+                <h3>Sistem Terstruktur</h3>
+
+                <p>
+                    Materi disusun secara sistematis
+                    dari dasar hingga persiapan ujian.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="icon">📊</div>
+
+                <h3>Monitoring Kemajuan</h3>
+
+                <p>
+                    Perkembangan belajar dapat
+                    dipantau secara berkala.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="icon">🏫</div>
+
+                <h3>Lingkungan Nyaman</h3>
+
+                <p>
+                    Suasana belajar yang mendukung
+                    konsentrasi dan fokus.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= TESTIMONI ================= -->
+
+    <section class="section">
+
+        <div class="section-label">
+            Testimoni
+        </div>
+
+        <h2 class="section-title">
+            Apa Kata Mereka?
+        </h2>
+
+        <p class="section-desc">
+            Pengalaman belajar dari siswa Bimbel Privat Academy.
+        </p>
+
+
+        <div class="testimonial-grid">
+
+            <div class="testimonial">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "Tutor-nya sabar banget dan
+                    penjelasannya mudah dipahami."
+                </p>
+
+                <div class="person">
+                    — Anisa, Kelas 12
+                </div>
+
+            </div>
+
+
+            <div class="testimonial">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "Belajarnya nyaman dan materi
+                    yang diberikan mudah dipahami."
+                </p>
+
+                <div class="person">
+                    — Rizky, Kelas 11
+                </div>
+
+            </div>
+
+
+            <div class="testimonial">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "Materi persiapannya lengkap
+                    dan membantu saya lebih percaya diri."
+                </p>
+
+                <div class="person">
+                    — Daffa, Kelas 12
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="section contact" id="kontak">
+
+        <div class="contact-box">
+
+            <div class="contact-info">
+
+                <h2>
+                    Siap Mulai Belajar?
+                </h2>
+
+                <p>
+                    Hubungi Bimbel Privat Academy
+                    untuk mendapatkan informasi program
+                    dan pendaftaran.
+                </p>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        📱
+                    </div>
+
+                    <div>
+                        <small>WhatsApp</small>
+                        <br>
+                        <strong>0821 6236 1209</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        📍
+                    </div>
+
+                    <div>
+                        <small>Alamat</small>
+                        <br>
+                        <strong>Jl. Halat No. 59</strong>
+                    </div>
+
+                </div>
+
+
+                <a href="https://wa.me/6282162361209"
+                   target="_blank"
+                   class="btn btn-gold">
+
+                    Chat WhatsApp →
+
+                </a>
+
+            </div>
+
+
+            <div class="contact-form">
+
+                <h2>
+                    Hubungi Kami
+                </h2>
+
+                <p style="color:#667085; margin-bottom:20px;">
+                    Isi data berikut untuk menghubungi
+                    Bimbel Privat Academy.
+                </p>
+
+
+                <form onsubmit="kirimWhatsApp(event)">
+
+                    <input
+                        type="text"
+                        id="nama"
+                        placeholder="Nama Anda"
+                        required
+                    >
+
+                    <input
+                        type="text"
+                        id="kelas"
+                        placeholder="Kelas"
+                        required
+                    >
+
+                    <textarea
+                        id="pesan"
+                        placeholder="Pesan"
+                        required
+                    ></textarea>
+
+                    <button
+                        type="submit"
+                        class="btn btn-gold submit-btn">
+
+                        Kirim ke WhatsApp →
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+            <div>
+
+                <h3>
+                    Bimbel Privat Academy
+                </h3>
+
+                <p>
+                    Pendampingan belajar yang fokus,
+                    fleksibel, dan terarah untuk
+                    membantu siswa mencapai potensi terbaik.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Menu</h3>
+
+                <a href="#beranda">Beranda</a>
+                <a href="#program">Program</a>
+                <a href="#harga">Harga</a>
+                <a href="#tentang">Tentang Kami</a>
+
+            </div>
+
+
+            <div>
+
+                <h3>Program</h3>
+
+                <a href="#program">Kelas 10</a>
+                <a href="#program">Kelas 11</a>
+                <a href="#program">Kelas 12</a>
+                <a href="#program">UTBK</a>
+
+            </div>
+
+
+            <div>
+
+                <h3>Kontak</h3>
+
+                <p>
+                    📱 0821 6236 1209
+                </p>
+
+                <p>
+                    📍 Jl. Halat No. 59
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 Bimbel Privat Academy.
+            All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= WHATSAPP FLOAT ================= -->
+
+    <a
+        href="https://wa.me/6282162361209"
+        target="_blank"
+        class="whatsapp"
+        title="Chat WhatsApp">
+
+        ☎
+
+    </a>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        function kirimWhatsApp(event) {
+
+            event.preventDefault();
+
+            const nama =
+                document.getElementById("nama").value;
+
+            const kelas =
+                document.getElementById("kelas").value;
+
+            const pesan =
+                document.getElementById("pesan").value;
+
+            const nomor =
+                "6282162361209";
+
+            const teks =
+                `Halo Bimbel Privat Academy.%0A%0A` +
+                `Nama: ${nama}%0A` +
+                `Kelas: ${kelas}%0A` +
+                `Pesan: ${pesan}`;
+
+            window.open(
+                `https://wa.me/${nomor}?text=${teks}`,
+                "_blank"
+            );
+        }
+
+    </script>
+
+</body>
+</html>
